@@ -10,7 +10,6 @@ class UserInputSchema(BaseModel):
 class TranscriptionSchema(BaseModel):
     transcript: str
     confidence_score: Optional[float]  # Confidence level of the transcription process
-    timestamps: Optional[List[dict]]  # e.g., [{"start": 0.0, "end": 2.5, "text": "Hello world"}]
 
 
 # Data schema for decision extraction output

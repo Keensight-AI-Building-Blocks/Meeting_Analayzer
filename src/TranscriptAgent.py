@@ -1,7 +1,8 @@
 import assemblyai as aai
 from dotenv import load_dotenv
 import os
-from typing import Dict, List
+import json
+from datetime import datetime
 from schemas import TranscriptionSchema, UserInputSchema
 from pydantic import ValidationError
 
@@ -39,22 +40,16 @@ class TranscriptAgent:
                 if not transcript or not hasattr(transcript, 'text'):
                     raise ValueError("Transcription failed: No transcript returned")
 
-                # Prepare timestamps
-                timestamps = []
+                # Prepare data
+                data = ""
                 if hasattr(transcript, 'utterances') and transcript.utterances:
                     for utterance in transcript.utterances:
-                        timestamps.append({
-                            "start": utterance.start,
-                            "end": utterance.end,
-                            "text": utterance.text,
-                            "speaker": f"Speaker {utterance.speaker}"
-                        })
+                        data += f"Speaker {utterance.speaker}: " + utterance.text
 
                 # Create output using schema
                 output = TranscriptionSchema(
-                    transcript=transcript.text,
+                    transcript=data,
                     confidence_score=getattr(transcript, 'confidence', 0.0),
-                    timestamps=timestamps
                 )
 
                 return output
@@ -69,6 +64,21 @@ class TranscriptAgent:
         except Exception as e:
             raise Exception(f"Transcription error: {str(e)}")
 
+    def save_to_json(self, transcription: TranscriptionSchema, output_dir: str = "outputs") -> str:
+        # Create output directory if it doesn't exist
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"transcript_{timestamp}.json"
+        filepath = os.path.join(output_dir, filename)
+        
+        # Save to JSON file
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(transcription.dict(), f, indent=4, ensure_ascii=False)
+            
+        return filepath
+
 
 if __name__ == "__main__":
     # Example usage
@@ -81,5 +91,9 @@ if __name__ == "__main__":
         )
         result = agent.transcribe_audio(input_data)
         print("Transcription result:", result.dict())
+        
+        # Save the transcription to a JSON file
+        json_path = agent.save_to_json(result)
+        print(f"Transcription saved to: {json_path}")
     except Exception as e:
         print("Error:", str(e))
