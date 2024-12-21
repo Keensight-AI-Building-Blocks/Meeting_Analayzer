@@ -14,8 +14,8 @@ class TranscriptionSchema(BaseModel):
 
 # Data schema for decision extraction output
 class DecisionExtractionSchema(BaseModel):
-    decisions: List[str]  # List of decisions extracted
-    highlights: Optional[List[str]]  # Key phrases or highlights from the discussion
+    decisions: List[str] = []
+    highlights: Optional[List[str]] = []
 
 # Data schema for graph generation output
 class GraphDataSchema(BaseModel):

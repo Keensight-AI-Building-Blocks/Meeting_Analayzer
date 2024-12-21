@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 import json
 from datetime import datetime
-from schemas import TranscriptionSchema, UserInputSchema
+from .schemas import TranscriptionSchema, UserInputSchema
 from pydantic import ValidationError
 
 class TranscriptAgent:
@@ -68,9 +68,7 @@ class TranscriptAgent:
         # Create output directory if it doesn't exist
         os.makedirs(output_dir, exist_ok=True)
         
-        # Generate filename with timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"transcript_{timestamp}.json"
+        filename = f"transcript.json"
         filepath = os.path.join(output_dir, filename)
         
         # Save to JSON file
@@ -79,21 +77,3 @@ class TranscriptAgent:
             
         return filepath
 
-
-if __name__ == "__main__":
-    # Example usage
-    try:
-        agent = TranscriptAgent()
-        # Use a real audio URL for testing
-        input_data = UserInputSchema(
-            url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
-            requested_output_formats=["transcript"]
-        )
-        result = agent.transcribe_audio(input_data)
-        print("Transcription result:", result.dict())
-        
-        # Save the transcription to a JSON file
-        json_path = agent.save_to_json(result)
-        print(f"Transcription saved to: {json_path}")
-    except Exception as e:
-        print("Error:", str(e))
