@@ -1,16 +1,1 @@
-{
-    "analysis_result": {
-        "decisions": [
-            "Speaker A encourages local governments to invest in more robust air quality monitoring systems and public alert mechanisms.",
-            "Professor DeCarlo plans to collaborate with colleagues to develop more precise prediction models for how smoke from wildfires might travel in the future."
-        ],
-        "highlights": [
-            "Hundreds of Canadian wildfires are causing air quality alerts across the US.",
-            "The smoke is primarily composed of particulate matter, which is harmful to respiratory, cardiovascular, and neurological systems.",
-            "High concentrations of particulate matter (150 micrograms per meter cubed) have been recorded, exceeding healthy levels by a significant margin.",
-            "Children, the elderly, and individuals with pre-existing health conditions are most vulnerable.",
-            "The situation's severity depends on weather patterns, with a shift expected in the next few days.",
-            "Climate change is predicted to increase the frequency and duration of wildfires, leading to more frequent occurrences of widespread air quality issues."
-        ]
-    }
-}
+{"analysis_result": {"decisions": [], "highlights": ["Smoke from Canadian wildfires is causing air quality alerts across the US.", "The poor air quality is primarily due to particulate matter, tiny particles that harm respiratory, cardiovascular, and neurological systems.", "Particulate matter levels are significantly higher than usual, exceeding healthy limits by a large margin.", "Vulnerable groups include children, the elderly, and those with pre-existing health conditions.", "The situation's severity depends on weather patterns that control smoke dispersal.", "Climate change is expected to increase the frequency and duration of such events."]}}

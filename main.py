@@ -2,10 +2,12 @@ import json
 from src.schemas import UserInputSchema
 from src.TranscriptAgent import TranscriptAgent
 from src.AnalyzerAgent import AnalyzerAgent
+from src.SentimentAnalysis import SentimentAnalyzer
 import asyncio
 
 # User input for requested output formats
-requested_output_formats = ["transcript", "analyze"]
+requested_output_formats = ["transcript", "analyze", "sentiment"]
+#requested_output_formats = ["sentiment"]
 
 # PLACE .MP3 WEB URL OR LOCAL PATH
 input_data = UserInputSchema(
@@ -26,10 +28,26 @@ def transcribe():
         print("Error in transcription:", str(e))
         return None
 
-async def analyze():
+async def analyzeMeeting():
     try:
         agent = AnalyzerAgent()
         result = await agent.analyze_transcript()
+        if result:
+            filename = 'outputs/analysis_results.json'
+            with open(filename, 'w') as f:
+                json.dump(result, f)
+            print(f"Analysis results saved to: {filename}")
+    except Exception as e:
+        print("Error in analysis:", str(e))
+
+async def analyzeSentimentsMeeting():
+    try:
+        agent = SentimentAnalyzer()
+        with open("outputs/transcript.json", 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+            Transcript = json.dumps(data, indent=4)  # Convert JSON object to a pretty-printed string
+
+        result = await agent.execute_agent(Transcript)
         if result:
             filename = 'outputs/analysis_results.json'
             with open(filename, 'w') as f:
@@ -45,4 +63,8 @@ if __name__ == '__main__':
     
     if "analyze" in requested_output_formats:
         print("Analyzing....")
-        asyncio.run(analyze())
+        asyncio.run(analyzeMeeting())
+    
+    if "sentiment" in requested_output_formats:
+        print("Analyzing Sentiments....")
+        asyncio.run(analyzeSentimentsMeeting())
