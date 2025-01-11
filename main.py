@@ -6,8 +6,8 @@ from src.SentimentAnalysis import SentimentAnalyzer
 import asyncio
 
 # User input for requested output formats
-requested_output_formats = ["transcript", "analyze", "sentiment"]
-#requested_output_formats = ["analyze"]
+#requested_output_formats = ["transcript", "analyze", "sentiment"]
+requested_output_formats = ["analyze"]
 
 # PLACE .MP3 WEB URL OR LOCAL PATH
 input_data = UserInputSchema(

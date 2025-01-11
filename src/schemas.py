@@ -17,6 +17,11 @@ class TranscriptionSchema(BaseModel):
 class DecisionExtractionSchema(BaseModel):
     decisions: List[str] = []
     highlights: Optional[List[str]] = []
+    accomplishments: Optional[List[str]] = []
+    todos: Optional[List[str]] = []
+    further: Optional[List[str]] = []
+
+    
 
 # Data schema for graph generation output
 class GraphDataSchema(BaseModel):

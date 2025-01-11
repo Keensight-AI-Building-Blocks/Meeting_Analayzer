@@ -29,7 +29,11 @@ You are a highly capable AI specializing in text analysis. Your task is to analy
 
 {
     "decisions": [],
-    "highlights": []
+    "highlights": [],
+    "accomplishments": [],
+    "todos": [],
+    "further": []
+
 }
 """
     )

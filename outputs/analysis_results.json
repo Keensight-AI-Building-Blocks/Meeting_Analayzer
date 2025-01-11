@@ -1,23 +1,42 @@
 {
     "analysis_result": {
         "decisions": [
-            "Alan will be the acting full stack Manager for Security Policies.",
+            "Alan will step in as acting full stack Manager for Security Policies.",
             "Anti Abuse is moving product sections from SEC to Data Science.",
             "Data Science will include Model Ops and Anti Abuse.",
-            "A second team will be established within dynamic analysis.",
-            "The team name \"Secure and Govern Growth and Data Science\" will be considered for a shorter name (possibly \"Enrichment\").",
+            "A second team within dynamic analysis is being established.",
+            "The team will explore a new one-word name, \"Enrichment,\" for the SEC team.",
             "Announcements of work anniversaries and new hires will be added to the meeting template.",
             "The team will consider adding a \"thanks or praise\" section to the meeting notes.",
-            "The team will review the development vision and mission."
+            "Team members will be asked to provide feedback on the development vision and mission."
         ],
         "highlights": [
-            "A meeting of the SEC (Secure and Govern Growth and Data Science) team was held.",
-            "Various team updates and announcements were shared, including personnel changes, project updates, and process improvements.",
-            "Concerns regarding the team's MR rate were discussed, with suggestions for improvement.",
-            "FedRAMP compliance and related security issues were addressed.",
-            "The team discussed a potential name change to improve clarity and consistency.",
-            "Team cohesion and morale were highlighted as important areas for focus.",
-            "The team discussed the implementation of a new container security bot and its potential impact."
+            "High response rate on a survey to improve the MR rate.",
+            "The SEC team's MR rate is 2-3 misses per engineer per month higher than company-wide average.",
+            "FedRAMP evaluation and remediation plans for security issues are discussed.",
+            "New approval rules on segregation of duties are reviewed for impact.",
+            "Discussion on team naming and the challenges of using multiple dashboards.",
+            "The team discusses ways to improve team cohesion and celebrate wins.",
+            "A new team member, Fernando, shares the methods used by his team to increase morale."
+        ],
+        "accomplishments": [
+            "Tiago set up a bot for container security that pings the team for volunteers.",
+            "The team successfully moved to using Workday for talent assessment.",
+            "The team successfully implemented a weekly refinement meeting to improve MR rate."
+        ],
+        "todos": [
+            "Review the survey results on how to improve the MR rate.",
+            "Check if the new approval rules on segregation of duties are affecting the team.",
+            "Provide feedback on the one-word name suggestion for the SEC team.",
+            "Provide feedback on the development vision and mission.",
+            "Investigate the reasons for not using reviewer roulette."
+        ],
+        "further": [
+            "Explore ways to improve team cohesion and celebrate wins.",
+            "Investigate the discrepancy between the team's MR rate and the company-wide average.",
+            "Determine the appropriate level of auditing for FedRAMP compliance.",
+            "Decide whether to include work anniversaries in the meeting announcements.",
+            "Decide on the best way to handle security findings on commercial versions of Analyzers."
         ]
     }
 }
