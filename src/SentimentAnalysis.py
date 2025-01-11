@@ -2,6 +2,7 @@ from __future__ import annotations as _annotations
 
 import asyncio
 from dataclasses import dataclass
+import json
 from typing import Any
 from dotenv import load_dotenv
 from httpx import AsyncClient
@@ -64,9 +65,10 @@ class SentimentAnalyzer:
 
             return {"sentiment": sentiment, "explanation": explanation}
 
-    def save_data_in_file(self, filename: str, data: str) -> None:
+    def save_data_in_file(self, filename: str, data: dict) -> None:
+        formatted_data = {"Sentiment_report": data}
         with open(filename, "w") as file:
-            file.write(data)
+            json.dump(formatted_data, file, indent=4)
 
     async def execute_agent(self, transcript: str):
         async with AsyncClient() as client:
@@ -74,7 +76,7 @@ class SentimentAnalyzer:
             prompt = f"Analyze the sentiment of the following meeting transcript: \n{transcript}"
             result = await self.sentiment_agent.run(prompt, deps=deps)
             print("Response:", result.data)
-            self.save_data_in_file("outputs/SentimentResults.txt", result.data)
+            self.save_data_in_file("outputs/SentimentResults.json", result.data)
 
 # Example usage
 #print("Example usage:")

@@ -7,11 +7,12 @@ import asyncio
 
 # User input for requested output formats
 requested_output_formats = ["transcript", "analyze", "sentiment"]
-#requested_output_formats = ["sentiment"]
+#requested_output_formats = ["analyze"]
 
 # PLACE .MP3 WEB URL OR LOCAL PATH
 input_data = UserInputSchema(
-    url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
+    #url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
+    url="src/audio/dsMeeting.mp3",
     requested_output_formats=requested_output_formats
 )
 

@@ -3,7 +3,8 @@ from typing import List, Optional
 
 # Input schema for user-provided data
 class UserInputSchema(BaseModel):
-    url: HttpUrl
+    #url: HttpUrl
+    url: str
     requested_output_formats: List[str]  # e.g., ["transcript", "decisions", "graphs"]
 
 # Data schema for transcription output

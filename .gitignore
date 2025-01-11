@@ -1,2 +1,4 @@
 .env
-src/outputs
+outputs/*
+src/audio/*
+src/__pycache__
