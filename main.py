@@ -3,11 +3,12 @@ from src.schemas import UserInputSchema
 from src.TranscriptAgent import TranscriptAgent
 from src.AnalyzerAgent import AnalyzerAgent
 from src.SentimentAnalysis import SentimentAnalyzer
+from src.ChartsGenerator import ChartGeneratorAgent
 import asyncio
 
 # User input for requested output formats
-#requested_output_formats = ["transcript", "analyze", "sentiment"]
-requested_output_formats = ["analyze"]
+#requested_output_formats = ["transcript", "analyze", "sentiment","charts"]
+requested_output_formats = ["charts"]
 
 # PLACE .MP3 WEB URL OR LOCAL PATH
 input_data = UserInputSchema(
@@ -41,6 +42,20 @@ async def analyzeMeeting():
     except Exception as e:
         print("Error in analysis:", str(e))
 
+async def GenerateCharts():
+    try:
+        agent = ChartGeneratorAgent()
+        result = await agent.analyze_transcript()
+        if result:
+            result_json = json.loads(result)
+            filename = 'outputs/charts_data.json'
+            with open(filename, 'w') as f:
+                json.dump(result_json, f, indent=2)
+            print(f"charts data results saved to: {filename}")
+            agent.DisplayCharts(filename)
+    except Exception as e:
+        print("Error in analysis:", str(e))
+
 async def analyzeSentimentsMeeting():
     try:
         agent = SentimentAnalyzer()
@@ -65,6 +80,10 @@ if __name__ == '__main__':
     if "analyze" in requested_output_formats:
         print("Analyzing....")
         asyncio.run(analyzeMeeting())
+
+    if "charts" in requested_output_formats:
+        print("generating charts....")
+        asyncio.run(GenerateCharts())
     
     if "sentiment" in requested_output_formats:
         print("Analyzing Sentiments....")
