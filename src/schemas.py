@@ -1,5 +1,5 @@
 from pydantic import BaseModel, HttpUrl
-from typing import List, Optional
+from typing import List, Optional, Union
 
 # Input schema for user-provided data
 class UserInputSchema(BaseModel):
@@ -24,5 +24,26 @@ class DecisionExtractionSchema(BaseModel):
     
 
 # Data schema for graph generation output
-class GraphDataSchema(BaseModel):
-    graphs: List[dict]  # e.g., [{"type": "bar", "data": {...}, "title": "Revenue Analysis"}]
+class PieChartData(BaseModel):
+    labels: List[str]
+    values: List[Union[int, float]]
+
+class BarChartData(BaseModel):
+    x: List[str]
+    y: List[Union[int, float]]
+
+class LineChartData(BaseModel):
+    x: List[str]
+    y: Optional[List[Union[int, float]]] = None
+    y_cac: Optional[List[Union[int, float]]] = None
+    y_clv: Optional[List[Union[int, float]]] = None
+
+class Chart(BaseModel):
+    type: str
+    title: str
+    x_label: Optional[str] = None
+    y_label: Optional[str] = None
+    data: Union[PieChartData, BarChartData, LineChartData]
+
+class ResponseModel(BaseModel):
+    charts: List[Chart]

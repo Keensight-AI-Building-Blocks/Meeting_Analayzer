@@ -7,13 +7,13 @@ from src.ChartsGenerator import ChartGeneratorAgent
 import asyncio
 
 # User input for requested output formats
-#requested_output_formats = ["transcript", "analyze", "sentiment","charts"]
-requested_output_formats = ["charts"]
+requested_output_formats = ["charts"] # you can use ["transcript", "analyze", "sentiment","charts"]
+url="src/audio/dsMeeting.mp3"
+#url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
 
-# PLACE .MP3 WEB URL OR LOCAL PATH
+
 input_data = UserInputSchema(
-    #url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
-    url="src/audio/dsMeeting.mp3",
+    url=url,
     requested_output_formats=requested_output_formats
 )
 

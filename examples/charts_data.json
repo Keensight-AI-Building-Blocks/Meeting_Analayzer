@@ -1,0 +1,104 @@
+{
+  "charts": [
+    {
+      "type": "pie",
+      "title": "Q4 Revenue Breakdown by Region",
+      "data": {
+        "labels": [
+          "North America",
+          "Europe",
+          "Asia-Pacific"
+        ],
+        "values": [
+          2800000,
+          1400000,
+          1200000
+        ]
+      }
+    },
+    {
+      "type": "pie",
+      "title": "Q4 Revenue Breakdown by Product Line",
+      "data": {
+        "labels": [
+          "Digital Products",
+          "Other Products"
+        ],
+        "values": [
+          2100000,
+          3500000
+        ]
+      }
+    },
+    {
+      "type": "line",
+      "title": "Quarterly Revenue Growth",
+      "x_label": "Quarter",
+      "y_label": "Revenue ($ million)",
+      "data": {
+        "x": [
+          "Q3",
+          "Q4"
+        ],
+        "y": [
+          4900000,
+          5600000
+        ]
+      }
+    },
+    {
+      "type": "bar",
+      "title": "Key Financial Metrics (Q3 vs. Q4)",
+      "x_label": "Metric",
+      "y_label": "Value",
+      "data": {
+        "x": [
+          "Gross Margin",
+          "Operating Expenses (% of Revenue)",
+          "Net Profit Margin",
+          "Debt-to-Equity Ratio"
+        ],
+        "y": [
+          [
+            60,
+            65
+          ],
+          [
+            40,
+            40
+          ],
+          [
+            15,
+            18
+          ],
+          [
+            1.0,
+            0.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "line",
+      "title": "CAC and CLV Trends",
+      "x_label": "Quarter",
+      "y_label": "Value ($)",
+      "data": {
+        "x": [
+          "Q3",
+          "Q4"
+        ],
+        "y": [
+          [
+            175,
+            900
+          ],
+          [
+            150,
+            950
+          ]
+        ]
+      }
+    }
+  ]
+}
