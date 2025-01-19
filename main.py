@@ -7,7 +7,7 @@ from src.ChartsGenerator import ChartGeneratorAgent
 import asyncio
 
 # User input for requested output formats
-requested_output_formats = ["charts"] # you can use ["transcript", "analyze", "sentiment","charts"]
+requested_output_formats = ["transcript"] # you can use ["transcript", "analyze", "sentiment","charts"]
 url="src/audio/dsMeeting.mp3"
 #url="https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
 
